@@ -1,0 +1,111 @@
+<html>
+	<head>
+		<title>Login Page</title>
+			<style type = "text/css">
+				body{
+					background-color: #1579A1;
+				}
+					.center {
+					  border-width: .1em;
+					  margin: auto;
+					  width: auto;
+					  padding: 10px;
+					  background-color:lightblue;
+					  height:auto;
+					  }
+					 table{
+					  border: 2px solid black;
+					  padding-bottom:10px;
+					  padding:20px;
+					}
+					p{
+					font-weight: bold;
+					font-size:25px;
+					font-family: "Times New Roman", Times, serif;
+					
+					}
+					.button {
+					  background-color:#212F3C;
+					  border: none;
+					  color: white;
+					  padding: 13px 30px;
+					  text-align: center;
+					  text-decoration: none;
+					  display: inline-block;
+					  font-size: 16px;
+					  margin: 4px 2px;
+					  cursor: pointer;
+					}	
+			</style>
+			<script type="text/javascript">
+			 function mouseoverPass(obj) {
+					  var obj = document.getElementById('pwd');
+					  obj.type = "text";
+					}
+				function mouseoutPass(obj) {
+					  var obj = document.getElementById('pwd');
+					  obj.type = "password";
+					}
+				function validation(){
+					var p = document.getElementById('pwd').value;
+					var x =document.getElementById('uname').value;
+					
+					if(x.length<8){
+						document.getElementById("eresult").innerHTML="user name must be atleast 8 characters";
+					    return false;
+					}
+					if(p.length != 10) {
+						document.getElementById("eresult").innerHTML="password must be 10 characters only";
+						
+					    return false;
+					}
+					
+					if (p.search(/[A-Z]/) < 0) {
+						document.getElementById("eresult").innerHTML="Your password must contain at least one upper case";
+						
+					    return false;
+					}
+					if(p.search(/[0-9]/)< 0) {
+								document.getElementById("eresult").innerHTML="Your password must contain at least one number.";
+							
+								return false;
+					}
+					 if (p.search(/[!@#$%^&*]/) < 0) {
+							document.getElementById("eresult").innerHTML ="Your password must contain at least one special digit.";
+						
+							return false;
+					}
+					return true;
+				}
+					
+					
+			</script>
+		</head>
+	<body>
+		<div class="center">
+		<h1 align="center">ABC Hospital Management System</h1>
+		</div>
+		<br><br><br>
+		<form  action="login" method="post" onsubmit="return validation();">
+			<table width="30%" height="30%" bgcolor="#1579A1"  align="center">
+				<tr><td colspan=2><center><font style="font-size:30px"><b> Login </b></font></center></td></tr><br>
+				<tr>
+				<td><p>User:</p></td>
+				<td><input type="text" size=25 name="userid" id="uname">
+				</td>
+				
+<br></td>
+				</tr><br>
+				<tr>
+				<td><p>Password:</p></td>
+				<td><input   type="Password" size=25  name="pwd" id="pwd" onmouseover="mouseoverPass();" onmouseout="mouseoutPass();"></td></tr>
+				
+				
+				
+			</table>
+				<p align="center" ><button  class="button"  type="submit"  value="Login">Login </button></p>
+		<form>
+				<div align ="center" id="eresult" style="color:white" style="font-size:30px"></div>
+
+	</body>
+</html>
